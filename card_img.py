@@ -113,10 +113,10 @@ def get_training(training_labels_filename,training_image_filename,num_training_c
 
 if __name__ == '__main__':
 
-    filename = "/Users/anais/Desktop/Playing-Card-Recognition/test.jpg"
+    filename = "/Users/yukun/Desktop/Projects/OpenCV/train2.png"
     num_cards = 4
-    training_image_filename = "/Users/anais/Desktop/Playing-Card-Recognition/train2.png"
-    training_labels_filename = "/Users/anais/Desktop/Playing-Card-Recognition/train.tsv"
+    training_image_filename = "C:/Users/yukun/Desktop/Projects/OpenCV/train.png"
+    training_labels_filename = "C:/Users/yukun/Desktop/Projects/OpenCV/train.tsv"
     num_training_cards = 56
 
     training = get_training(training_labels_filename,training_image_filename,num_training_cards)
