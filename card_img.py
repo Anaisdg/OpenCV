@@ -113,11 +113,13 @@ def get_training(training_labels_filename,training_image_filename,num_training_c
 
 if __name__ == '__main__':
 
-    filename = "/Users/yukun/Desktop/Projects/OpenCV/train2.png"
+    filename = "/Users/anais/Desktop/OpenCV/test_set.jpg"
     num_cards = 4
-    training_image_filename = "C:/Users/yukun/Desktop/Projects/OpenCV/train.png"
-    training_labels_filename = "C:/Users/yukun/Desktop/Projects/OpenCV/train.tsv"
+    training_image_filename = "/Users/anais/Desktop/OpenCV/train_copy.png"
+    training_labels_filename = "/Users/anais/Desktop/OpenCV/train_set_mini.tsv"
     num_training_cards = 56
+
+    print("test one")
 
     training = get_training(training_labels_filename,training_image_filename,num_training_cards)
 
@@ -130,14 +132,20 @@ if __name__ == '__main__':
       im = cv2.transpose(im)
       im = cv2.flip(im,1)
 
+    print("test two")
+
     # Debug: uncomment to see registered images
-    for i,c in enumerate(getCards(im,num_cards)):
-      card = find_closest_card(training,c,)
-      cv2.imshow(str(card),c)
-    cv2.waitKey(0)
+    # for i,c in enumerate(getCards(im,num_cards)):
+    #   card = find_closest_card(training,c,)
+    #   cv2.imshow(str(card),c)
+    # cv2.waitKey(0)
+
+    print("test three")
 
     cards = [find_closest_card(training,c) for c in getCards(im,num_cards)]
+    print("test four")
     print (cards)
+    print("test final")
 
   # else:
   #   print __doc__
