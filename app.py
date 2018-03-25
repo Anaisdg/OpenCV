@@ -23,8 +23,9 @@ test_list = [['1','D','R','S'],
             ['3','D','R','F'],
             ['1','S','G','F'],
             ['2','S','G','F']]
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/uploads')
 
-UPLOAD_FOLDER = '../static/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
@@ -32,6 +33,8 @@ app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+# Debug
+# print(app.config['UPLOAD_FOLDER'],file=sys.stderr)
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -62,18 +65,18 @@ def upload_file():
         if file and allowed_file(file.filename):
 
             #debug
-            #print(file.filename,file = sys.stderr)
+            # print(file.filename,file = sys.stderr)
 
             filename = secure_filename(file.filename)
             
             #Debug
-            print(filename,file=sys.stderr)
+            # print(filename,file=sys.stderr)
 
             #Debug
-            print((os.path.join(app.config['UPLOAD_FOLDER'], filename)),file=sys.stderr)
+            #print((os.path.join(app.config['UPLOAD_FOLDER'], filename)),file=sys.stderr)
             
-            file.save(app.config['UPLOAD_FOLDER' + filename])
-            return redirect(url_for('uploaded_file',
+            file.save(os.path.join(UPLOAD_FOLDER, filename))
+            return redirect(url_for('upload_file',
                                     filename=filename))
     return render_template("index.html")
 
