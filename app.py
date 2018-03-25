@@ -73,7 +73,7 @@ def upload_file():
             # print(filename,file=sys.stderr)
 
             #Debug
-            print((os.path.join(app.config['UPLOAD_FOLDER'], filename)),file=sys.stderr)
+            #print((os.path.join(app.config['UPLOAD_FOLDER'], filename)),file=sys.stderr)
             
             file.save(os.path.join(UPLOAD_FOLDER, filename))
             return redirect(url_for('upload_file',
