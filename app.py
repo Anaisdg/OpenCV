@@ -26,7 +26,7 @@ test_list = [['1','D','R','S'],
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/uploads')
 
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 
@@ -76,7 +76,7 @@ def upload_file():
             #print((os.path.join(app.config['UPLOAD_FOLDER'], filename)),file=sys.stderr)
             
             file.save(os.path.join(UPLOAD_FOLDER, filename))
-            return redirect(url_for('upload_file',
+            return redirect(url_for('fakedata',
                                     filename=filename))
     return render_template("index.html")
 

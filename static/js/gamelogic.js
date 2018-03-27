@@ -1,20 +1,21 @@
 // -----------------------------
 // Board Module
 
+Plotly.d3.json('/fakedata', function (error, response) {
+  console.log(response);
+  boardModule.init(response);
+
+})
+
 var boardModule = function (x) {
   // Variables to store board and deck
 
   // Filling the Board with Cards from the API
-
+  
 // Init Method
 // ******************************
-  function init() {
-    var x;
-    Plotly.d3.json('/fakedata', function (error, response) {
-      x = callback(response);
-
-
-    })
+  function init(x) {
+    
     console.log(x);
     return x;
 
