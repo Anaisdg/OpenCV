@@ -69,13 +69,7 @@ def upload_file():
 
             filename = secure_filename(file.filename)
             
-            #Debug
-            # print(filename,file=sys.stderr)
-
-            #Debug
-            #print((os.path.join(app.config['UPLOAD_FOLDER'], filename)),file=sys.stderr)
-            
-            file.save(os.path.join(UPLOAD_FOLDER, filename))
+            image = filename
             return redirect(url_for('fakedata',
                                     filename=filename))
     return render_template("index.html")
