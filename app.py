@@ -2,10 +2,10 @@ from flask import *
 import os
 import pandas as pd
 import json
-from card_img_2 import rectify,preprocess,imgdiff,find_closest_card,getCards,get_training
-from unpack import unpack
 from werkzeug.utils import secure_filename
 import sys
+from gamelogic import *
+from unpack import *
 
 test_list = [['1','D','R','S'],
              ['2','D','P','E'],
@@ -23,61 +23,40 @@ test_list = [['1','D','R','S'],
             ['3','D','R','F'],
             ['1','S','G','F'],
             ['2','S','G','F']]
-APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/uploads')
+
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-# Debug
-# print(app.config['UPLOAD_FOLDER'],file=sys.stderr)
-
+result = []
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
-   
-    # Debug
-    # print(request.method,file=sys.stderr)
-    
 
     if request.method == 'POST':
-        
-        #Debug
-        #print(request.files,file=sys.stderr)
-        
         if request.files.get('file'):
-        
-            if 'file' not in request.files:
-                flash('No file part')
-                return redirect(request.url)
-        file = request.files['file']
-       
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-
-            #debug
-            # print(file.filename,file = sys.stderr)
-
-            filename = secure_filename(file.filename)
+            cards = test_list
+            board = unpack_dict(cards)
+            foundSet = findSet(board)
+            # file = request.files['file']
+            # image = file.read()
             
-            image = filename
-            return redirect(url_for('fakedata',
-                                    filename=filename))
+            result.append(foundSet)
+        return redirect('results')
     return render_template("index.html")
+
+@app.route('/results')
+def ending():
+    return render_template('results.html')
 
 @app.route("/fakedata")
 def fakedata():
-    data = unpack(test_list)
-    return jsonify(data.to_dict(orient='records'))
+  
+    return jsonify(result)
 
 
 
