@@ -39,6 +39,8 @@ def upload_file():
 
     if request.method == 'POST':
         if request.files.get('file'):
+            set_image = request.files['file']
+            Image_Detection(set_image,numcards)
             cards = test_list
             board = unpack_dict(cards)
             foundSet = findSet(board)
