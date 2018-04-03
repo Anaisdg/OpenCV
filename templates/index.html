@@ -10,9 +10,27 @@
      <h1>Upload new File</h1>
      <form method=post enctype=multipart/form-data>
        <p><input type=file name=file>
-          <input type=submit value=Upload>
+          <input name="text" id = "textbox" onkeyup="textboxs()">
+          <input type=submit value=Upload id = "uploadbutton">
      </form>
+    <script>
+    var $textbox = document.getElementById("textbox");
+    var $uploadfunction = document.getElementById("uploadbutton");
     
+    function textboxs()
+    {
+    if ($textbox.value !=  "14" || $textbox.value !=  "16" ){
+      $uploadfunction.disabled = true;
+      
+
+    }
+    else{
+      $uploadfunction.disabled = false;
+      
+    }
+  }
+    textboxs();
+    </script>
 <div class="panel panel-default">    
     
     
