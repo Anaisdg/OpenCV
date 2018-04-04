@@ -48,5 +48,6 @@ def Imagedetection(imagepath,numcards,epsilon=0.02):
         new_img = cv2.cvtColor(warp[i],cv2.COLOR_BGR2RGB)
         new_img_list.append(new_img)
         
-        cv2.imwrite(f"Image{i}.jpg",warp[i])
+        # cv2.imwrite(f"Image{i}.jpg",warp[i])
     print("Cropping Complete! Let's roll!")
+    return new_img_list

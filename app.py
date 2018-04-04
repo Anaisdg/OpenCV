@@ -6,6 +6,8 @@ from werkzeug.utils import secure_filename
 import sys
 from gamelogic import *
 from unpack import *
+from card_detection import *
+import cv2 as cv
 
 test_list = [['1','D','R','S'],
              ['2','D','P','E'],
@@ -40,7 +42,10 @@ def upload_file():
     if request.method == 'POST':
         if request.files.get('file'):
             set_image = request.files['file']
-            Image_Detection(set_image,numcards)
+            numcards = 12
+            image_list = Imagedetection(set_image,numcards)
+            for x in range(len(image_list)):
+                cv.imwrite(f)
             cards = test_list
             board = unpack_dict(cards)
             foundSet = findSet(board)
