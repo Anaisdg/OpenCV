@@ -4,32 +4,17 @@ import pandas as pd
 import json
 from werkzeug.utils import secure_filename
 import sys
-from gamelogic import *
-from unpack import *
-from card_detection import *
+import unpack
+import card_detection 
 import cv2 as cv
-
-test_list = [['1','D','R','S'],
-             ['2','D','P','E'],
-             ['3','D','P','E'],
-             ['1','D','P','E'],
-            ['2','S','G','S'],
-            ['2','O','G','E'],
-            ['2','D','P','E'],
-            ['3','D','R','F'],
-            ['1','O','R','F'],
-            ['2','O','R','F'],
-            ['3','O','R','F'],
-            ['1','D','R','F'],
-            ['2','D','R','F'],
-            ['3','D','R','F'],
-            ['1','S','G','F'],
-            ['2','S','G','F']]
+import Card_Predictor 
+import Gamelogic
 
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'static/images/Original'
 
 result = []
 def allowed_file(filename):
@@ -41,17 +26,16 @@ def upload_file():
 
     if request.method == 'POST':
         if request.files.get('file'):
-            set_image = request.files['file']
-            numcards = 12
-            image_list = Imagedetection(set_image,numcards)
-            for x in range(len(image_list)):
-                cv.imwrite(f)
-            cards = test_list
-            board = unpack_dict(cards)
-            foundSet = findSet(board)
-            # file = request.files['file']
-            # image = file.read()
+            file= request.files['file']
             
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], "original.jpg"))
+            
+            numcards = 12
+            card_detection.Imagedetection("static/images/Original/original.jpg",numcards)
+            cards= Card_Predictor.prediction_tuples()
+            print(cards, )
+            board = unpack.unpack_result(cards)
+            foundSet = Gamelogic.findSet(board)
             result.append(foundSet)
         return redirect('results')
     return render_template("index.html")
