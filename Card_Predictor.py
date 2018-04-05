@@ -10,6 +10,8 @@ from keras.layers import Activation, Dropout, Flatten, Dense
 import numpy as np
 import pandas as pd
 import os
+from os import listdir
+from PIL import Image
 
 class_list = ['1DGE',
  '1DGF',
@@ -141,11 +143,20 @@ def predictor(image_path):
     return max(zip_test)
 
 def find_cropped_images(folderpath):
-    return [folderpath + '/' + v for v in os.listdir(folderpath) if v != '.DS_Store']
+    images = [folderpath + '/' + v for v in os.listdir(folderpath) if v != '.DS_Store']
+    return images
+
+def loadImages(imagepath):
+    imagesList = imagepath
+    loadedImages = []
+    for image in imagesList:
+        img = Image.open(image)
+        loadedImages.append(img)
+    return loadedImages
+
 
 def prediction_tuples():
      predictions = [predictor(png) for png in find_cropped_images(folderpath)]
-     
      return predictions
 
 print(prediction_tuples())

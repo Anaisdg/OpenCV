@@ -10,6 +10,7 @@ def findSet(board):
             for k in range(j + 1,len(board)):
                 c3 = board[k]
                 if (checkSet(c1, c2, c3)):
+                 
                     foundSet.append([c1, c2, c3])
                     SetFound = DataSet(foundSet)
    
@@ -23,10 +24,10 @@ def checkSet(card1,card2,card3):
 def isAllSameorDiff(a,b,c):
     return (a == b and a == c and b == c) or (a != b and a != c and b != c)
 
-def removeSet(pos1, pos2, pos3):
-    board.splice(pos1, 1)
-    board.splice(pos2, 1)
-    board.splice(pos3, 1)
+def removeSet(board,pos1, pos2, pos3):
+    board.pop(pos1)
+    board.pop(pos2)
+    board.pop(pos3)
 
 
 def DataSet(foundSet):
