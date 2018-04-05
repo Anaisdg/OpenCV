@@ -148,4 +148,3 @@ def prediction_tuples():
      predictions = pd.Series(predictions).to_json(orient='values')
      return predictions
 
-print(prediction_tuples())

@@ -11,7 +11,7 @@ def index():
 @app.route('/predictions')
 def predictions():
     predictions = Card_Predictor.prediction_tuples()
-    print(predictions)
+  
     return jsonify(predictions)
 
 

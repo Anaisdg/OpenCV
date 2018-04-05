@@ -23,3 +23,19 @@ def unpack_dict(cards):
                    'shading':cards[i][3]}
    
     return board
+
+    
+
+def unpack_result(cards):
+    predictions = []
+    for card in cards:
+        predictions.append(list(card[1]))
+    
+    board = {}
+    for i in range(0,len(cards)):
+        board[i] ={'number':predictions[i][0],
+                   'shape':predictions[i][1],
+                   'color':predictions[i][2],
+                   'shading':predictions[i][3]}
+   
+    return board

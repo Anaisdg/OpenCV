@@ -24,8 +24,8 @@ def Imagedetection(imagepath,numcards,epsilon=0.02):
     
     for i in range(numcards):
         card = contours[i]
-        peri = cv2.arcLength(card,True)
-        approx = cv2.approxPolyDP(card,epsilon*peri,True)
+        peri = epsilon * cv2.arcLength(card,True)
+        approx = cv2.approxPolyDP(card,peri,True)
         rect = cv2.minAreaRect(contours[i])
         r = cv2.boxPoints(rect)
 
@@ -48,6 +48,6 @@ def Imagedetection(imagepath,numcards,epsilon=0.02):
         new_img = cv2.cvtColor(warp[i],cv2.COLOR_BGR2RGB)
         new_img_list.append(new_img)
         
-        # cv2.imwrite(f"Image{i}.jpg",warp[i])
-    print("Cropping Complete! Let's roll!")
+        cv2.imwrite(f"static/images/cropped/Image{i}.jpg",warp[i])
+    
     return new_img_list
