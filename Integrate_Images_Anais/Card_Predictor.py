@@ -141,11 +141,20 @@ def predictor(image_path):
     return max(zip_test)
 
 def find_cropped_images(folderpath):
-    return [folderpath + '/' + v for v in os.listdir(folderpath) if v != '.DS_Store']
+    images = [folderpath + '/' + v for v in os.listdir(folderpath) if v != '.DS_Store']
+    return images
+
+def loadImages(imagepath):
+    imagesList = imagepath
+    loadedImages = []
+    for image in imagesList:
+        img = Image.open(image)
+        loadedImages.append(img)
+    return loadedImages
+
 
 def prediction_tuples():
      predictions = [predictor(png) for png in find_cropped_images(folderpath)]
-     predictions = pd.Series(predictions).to_json(orient='values')
      return predictions
 
 print(prediction_tuples())

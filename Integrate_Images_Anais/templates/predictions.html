@@ -21,19 +21,16 @@
       <div class="row">
         <div class="col-md-12">
           <h2>Accuracy and Label</h2>
-          <h3> {% predictions %}</h3>
-          <!-- <table>
-          {% for t in predictions %}
-              <tr>
-              {% for i in t %}
-                  <td>{{ i }}</td>
-              {% endfor %}
-              </tr>
-          {% endfor %}
-           </table> -->
+          {% for i in range(0,12)%}
+          <section class="row" style="background-color: green;">
+              <h3> {{ card_predictions[i] }}</h3>
+              <img src=' {{ images[i] }} ' style="width:100px;height:100px;">
+            </section>
+            {% endfor %}
         </div>
       </div>
     </div>
 
-  </body>
-  </html>
+</body>
+
+</html>
