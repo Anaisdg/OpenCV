@@ -5,6 +5,20 @@ from mpl_toolkits.axes_grid1 import ImageGrid
 import math
 
 
+def rectify(h):
+    h = h.reshape((4,2))
+    hnew = np.zeros((4,2),dtype = np.float32)
+
+    add = h.sum(1)
+    hnew[0] = h[np.argmin(add)]
+    hnew[2] = h[np.argmax(add)]
+
+    diff = np.diff(h,axis = 1)
+    hnew[1] = h[np.argmin(diff)]
+    hnew[3] = h[np.argmax(diff)]
+
+    return hnew
+
 def Imagedetection(imagepath,numcards,epsilon=0.02):
     img = cv2.imread(imagepath)
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -24,25 +38,19 @@ def Imagedetection(imagepath,numcards,epsilon=0.02):
     
     for i in range(numcards):
         card = contours[i]
-        peri = epsilon * cv2.arcLength(card,True)
-        approx = cv2.approxPolyDP(card,peri,True)
+        peri = 0.02*cv2.arcLength(card,True)
+        approx =  cv2.approxPolyDP(card,peri,True)
         rect = cv2.minAreaRect(contours[i])
         r = cv2.boxPoints(rect)
 
         h = np.float32([[0,0],[399,0],[399,399],[0,399]])
         approx = np.float32([item for sublist in approx for item in sublist])
-        print(approx.shape)
+       
         transform = cv2.getPerspectiveTransform(approx,h)
         warp[i] = cv2.warpPerspective(img,transform,(400,400))
 
     # Show perspective correction
     
-    fig = plt.figure(1, (10,10))
-    grid = ImageGrid(fig, 111, # similar to subplot(111)
-                    nrows_ncols = (4, 4), # creates 2x2 grid of axes
-                    axes_pad=0.1, # pad between axes in inch.
-                    aspect=True, # do not force aspect='equal'
-                    )
     new_img_list = []
     for i in range(numcards):
         new_img = cv2.cvtColor(warp[i],cv2.COLOR_BGR2RGB)

@@ -3,11 +3,24 @@
 <head>
 <meta charset="utf-8">
 <title>OpenCV Basic Template</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           + //maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
       
-    
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Accuracy and Label</h2>
+        {% for i in range(0,12)%}
+        <section class="row" style="background-color: green;">
+            <h3> {{ card_predictions[i] }}</h3>
+            <img src=' {{ images[i] }} ' style="width:100px;height:100px;">
+          </section>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+
 <div class="panel panel-default">    
     <table class="table" id="cardtable">
         <thead>

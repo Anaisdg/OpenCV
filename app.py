@@ -16,6 +16,8 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/images/Original'
 
+
+folderpath = 'static/images/cropped'
 result = []
 def allowed_file(filename):
     return '.' in filename and \
@@ -33,7 +35,7 @@ def upload_file():
             numcards = 12
             card_detection.Imagedetection("static/images/Original/original.jpg",numcards)
             cards= Card_Predictor.prediction_tuples()
-            print(cards, )
+            
             board = unpack.unpack_result(cards)
             foundSet = Gamelogic.findSet(board)
             result.append(foundSet)
@@ -42,7 +44,12 @@ def upload_file():
 
 @app.route('/results')
 def ending():
-    return render_template('results.html')
+    card_predictions = Card_Predictor.prediction_tuples()
+    folderpath = 'static/images/cropped'
+    images = Card_Predictor.find_cropped_images(folderpath)
+    dictionary = {'card_predictions':card_predictions, 'images':images}
+    return render_template('results.html', card_predictions = card_predictions, images= images)
+    
 
 @app.route("/fakedata")
 def fakedata():

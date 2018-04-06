@@ -37,5 +37,6 @@ def unpack_result(cards):
                    'shape':predictions[i][1],
                    'color':predictions[i][2],
                    'shading':predictions[i][3]}
-   
+    print(board)
+
     return board

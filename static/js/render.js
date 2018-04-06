@@ -4,6 +4,7 @@ var $tbody = document.querySelector("tbody");
 Plotly.d3.json('/fakedata', function (error, response) {
     var tbl_body = document.createElement("tbody");
     
+    console.log(response);
     renderTable(response);
 })
 
