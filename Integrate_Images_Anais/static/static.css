@@ -1,0 +1,44 @@
+body {
+}
+
+body::before {
+  background: url('style/legos.jpg') no-repeat center center fixed;
+  content: '';
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 0.5;
+  -webkit-filter: blur(5px);
+}
+
+
+.title {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-weight: bolder;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 100px;
+
+}
+
+.subtitle {
+  text-align: center;
+  font-weight: bolder;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 30px
+}
+.predicted_cards {
+  font-family: 'Bungee Shade', cursive;
+  text-align: center;
+}
+
+.your_cards {
+  text-align: center;
+  font-family: 'Bungee Shade', cursive;
+}

@@ -1,4 +1,60 @@
 <!DOCTYPE html>
+<!-- <html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Card Predictions</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../static/static.css">
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row title">
+      <h1> Eye spy... </h1>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="subtitle">Your Cards</h2>
+        <section class="predicted_cards">
+          {% for i in [0,4,8]%}
+          <div class="row">
+            <div class = "col-md-3">
+                  <h3> {{ card_predictions[i] }}</h3>
+                  <img src= {{ images[i] }}  style="width:100px;height:100px;">
+                </div>
+                <div class = "col-md-3">
+                  <h3> {{ card_predictions[i+1] }}</h3>
+                  <img src= {{ images[i+1] }}  style="width:100px;height:100px;">
+                </div>
+                <div class = "col-md-3">
+                  <h3> {{ card_predictions[i+2] }}</h3>
+                  <img src= {{ images[i+2] }}  style="width:100px;height:100px;">
+                </div>
+                <div class = "col-md-3">
+                  <h3> {{ card_predictions[i+3] }}</h3>
+                  <img src= {{ images[i+3] }}  style="width:100px;height:100px;">
+                </div>
+          </div>
+        </section>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html> -->
+
 <html lang="en">
 
 <head>
@@ -8,25 +64,44 @@
   <title>Card Predictions</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='static.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container">
-    <div class="jumbotron text-center">
-      <h1>Card Predictions</h1>
+  <body>
+    <div class="container-fluid">
+      <div class="row title">
+        <h1> Let's SET this right! </h1>
+      </div>
     </div>
-
 
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <h2>Accuracy and Label</h2>
-          {% for i in range(0,12)%}
-          <section class="row" style="background-color: green;">
-              <h3> {{ card_predictions[i] }}</h3>
-              <img src=' {{ images[i] }} ' style="width:100px;height:100px;">
-            </section>
-            {% endfor %}
+          <h2 class="subtitle">Eye spy..Your Cards</h2>
+          <section>
+            {% for i in [0,4,8]%}
+            <div class="row predicted_cards">
+              <div class = "col-md-3">
+                    <h3> {{ card_predictions[i][1] }}</h3>
+                    <img src= {{ images[i] }}  style="width:100px;height:140px;">
+                  </div>
+                  <div class = "col-md-3">
+                    <h3> {{ card_predictions[i+1][1] }}</h3>
+                    <img src= {{ images[i+1] }}  style="width:100px;height:140px;">
+                  </div>
+                  <div class = "col-md-3">
+                    <h3> {{ card_predictions[i+2][1] }}</h3>
+                    <img src= {{ images[i+2] }}  style="width:100px;height:140px;">
+                  </div>
+                  <div class = "col-md-3">
+                    <h3> {{ card_predictions[i+3][1] }}</h3>
+                    <img src= {{ images[i+3] }}  style="width:100px;height:140px;">
+                  </div>
+            </div>
+          </section>
+
+          {% endfor %}
         </div>
       </div>
     </div>
