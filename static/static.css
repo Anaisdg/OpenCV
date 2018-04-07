@@ -32,12 +32,16 @@ body::before {
 }
 
 .predicted_cards {
-  font-family: 'Bungee Shade', cursive !important;
+  font-family: 'Bungee' !important;
   text-align: center;
 }
 
 .your_cards {
   text-align: center;
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Bungee' !important;
+    
 }
 
+.btn{
+   
+}

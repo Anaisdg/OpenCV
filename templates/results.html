@@ -8,11 +8,12 @@
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='static.css')}}">
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='w3.css')}}">
 <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
 </head>
 <body>
    <div class="container-fluid">
       <div class="row title">
-        <h1 style="font-size:0.35em;"> Let's SET this right! </h1>
+        <h1 class = "title" style="font-size:0.35em;"> Let's SET this right! </h1>
            <h2 class="subtitle">Eye spy..Your Cards</h2>
       </div>
     </div>
@@ -23,21 +24,20 @@
          
           <section>
             {% for i in [0,4,8]%}
-            <div class="row predicted_cards">
-              <div class = "col-md-3">
+           <div class="row predicted_cards">
+              <div class = "col-md-3 predicted_cards" >
                     <h3> {{ card_predictions[i][1] }}</h3>
                     <img src= {{ images[i] }}  style="width:100px;height:140px;">
                   </div>
-                  <div class = "col-md-3">
-                       
+                  <div class = "col-md-3 predicted_cards">
                     <h3> {{ card_predictions[i+1][1] }}</h3>
                     <img src= {{ images[i+1] }}  style="width:100px;height:140px;">
                   </div>
-                  <div class = "col-md-3">
+                  <div class = "col-md-3 predicted_cards">
                     <h3> {{ card_predictions[i+2][1] }}</h3>
                     <img src= {{ images[i+2] }}  style="width:100px;height:140px;">
                   </div>
-                  <div class = "col-md-3">
+                  <div class = "col-md-3 predicted_cards">
                     <h3> {{ card_predictions[i+3][1] }}</h3>
                     <img src= {{ images[i+3] }}  style="width:100px;height:140px;">
                   </div>
@@ -46,9 +46,8 @@
           </section>
 
           {% endfor %}
-        <div class = "col-md-12" style="text-align:center; padding-top:20px;"> <a class="btn" href="/"
-          style="font-family: 'Lato', sans-serif;color:#ffffff;font-size:16px;text-decoration:none;background:black;padding:10px 30px;border-radius:2px; text-transform: uppercase; box-shadow: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);"
-          target="_blank" data-hs-link-id="1">Try Agaain!</a>
+        <div class = "col-md-12" style="text-align:center; padding-top:60px;padding-bottom: 60px;"> <a id="btn" style=" font-family: 'Bungee';color:#ffffff;font-size:16px;text-decoration:none;background:#dc2a1b !important;padding:10px 30px;border-radius:2px; text-transform: uppercase; box-shadow: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);"href="/"
+         >Try Again!</a>
           </div>
         </div>
       </div>

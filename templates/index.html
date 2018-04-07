@@ -5,7 +5,11 @@
 <title>OpenCV Basic Template</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="../static/css/style21.css" />
-</head>
+
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline" rel="stylesheet">
+    </head>
 <body>
     <div class="content">
         <div class="wrap">
@@ -46,15 +50,7 @@
     
           
     
-     <form method=post enctype=multipart/form-data style=" display: inline-block;
-     text-align: center;">
-     <input type=file name=file>
-          <!-- <input name="text" id = "textbox" onkeyup="textboxs()"> -->
-          <input class="button-custom" type=submit value="Start the Game" id = "uploadbutton">
-     </form>
-     </ul>
-    </div>
-              
+     
     <!-- <script>
     var $textbox = document.getElementById("textbox");
     var $uploadfunction = document.getElementById("uploadbutton");
@@ -74,7 +70,17 @@
     textboxs();
     </script> --><div class= "container-fluid">
             <div class= "row">
-              <div class="col-md-8">
+                <div class="col-md-12" style="text-align: center;">
+                <form method=post enctype=multipart/form-data style=" display: inline-block;
+     text-align: center;">
+     <input type=file name=file>
+          <!-- <input name="text" id = "textbox" onkeyup="textboxs()"> -->
+          <input class="button-custom" style="font-family: 'Bungee'" type=submit value="Start the Game" id = "uploadbutton">
+                    </form></div>
+                <div class="col-md-12" style="padding-bottom: 20px;text-align:  center;margin-top:30px;" > <p><span style="font-weight:500;font-size:30px;"> Instructions:</span>
+                    <span style="font-size:20px;">Take the pictures of a board with 12 cards set on them. Then, click the “Play the Game” button to begin.</span></p></div>
+              <div class="col-md-8" >
+                  
                   <h3>What is Set?</h3>
                   <br>
                   <p>A SET is three cards where each feature, when looked at individually, is either all the same OR all different. Each card contains four features: color (red, purple or green), shape (oval, squiggle or diamond), number (one, two or three) and shading (solid, striped or outlined).</p>
@@ -90,6 +96,9 @@
                           
   
               </div>
+                <div class ="col-md-4">
+                <img src ="https://www.setgame.com/sites/default/files/styles/galleryformatter_slide/public/products/SETboxright_0.png?itok=89hZR2PR">
+                </div>
   
           </div>
   
@@ -97,7 +106,7 @@
       </div>
   
   
-  </div>
+ 
   
   
 </body>
@@ -108,5 +117,5 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+
 </html>

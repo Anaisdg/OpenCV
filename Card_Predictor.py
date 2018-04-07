@@ -95,7 +95,7 @@ class_list = ['1DGE',
  '3SRF',
  '3SRS']
 
-model_path = 'static/model/first_try.h5'
+model_path = 'static/model/final.h5'
 image_size = (150, 150)
 folderpath = 'static/images/cropped'
 

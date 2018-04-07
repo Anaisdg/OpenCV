@@ -14,6 +14,7 @@ import Gamelogic
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 folderpath = 'static/images/cropped'
+
 result = []
 
 app = Flask(__name__)
