@@ -13,12 +13,14 @@ import Gamelogic
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
+folderpath = 'static/images/cropped'
+result = []
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/images/Original'
 
 
-folderpath = 'static/images/cropped'
-result = []
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

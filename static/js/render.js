@@ -42,5 +42,6 @@ function renderTable(board) {
     }
 }
 
+
 //table with render base on the length of the data array
 //

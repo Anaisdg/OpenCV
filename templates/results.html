@@ -3,23 +3,59 @@
 <head>
 <meta charset="utf-8">
 <title>OpenCV Basic Template</title>
-<link rel="stylesheet" href="https:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           + //maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='static.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='w3.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 </head>
 <body>
-      
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Accuracy and Label</h2>
-        {% for i in range(0,12)%}
-        <section class="row" style="background-color: green;">
-            <h3> {{ card_predictions[i] }}</h3>
-            <img src=' {{ images[i] }} ' style="width:100px;height:100px;">
-          </section>
-          {% endfor %}
+   <div class="container-fluid">
+      <div class="row title">
+        <h1 style="font-size:0.35em;"> Let's SET this right! </h1>
+           <h2 class="subtitle">Eye spy..Your Cards</h2>
       </div>
     </div>
-  </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+         
+          <section>
+            {% for i in [0,4,8]%}
+            <div class="row predicted_cards">
+              <div class = "col-md-3">
+                    <h3> {{ card_predictions[i][1] }}</h3>
+                    <img src= {{ images[i] }}  style="width:100px;height:140px;">
+                  </div>
+                  <div class = "col-md-3">
+                       
+                    <h3> {{ card_predictions[i+1][1] }}</h3>
+                    <img src= {{ images[i+1] }}  style="width:100px;height:140px;">
+                  </div>
+                  <div class = "col-md-3">
+                    <h3> {{ card_predictions[i+2][1] }}</h3>
+                    <img src= {{ images[i+2] }}  style="width:100px;height:140px;">
+                  </div>
+                  <div class = "col-md-3">
+                    <h3> {{ card_predictions[i+3][1] }}</h3>
+                    <img src= {{ images[i+3] }}  style="width:100px;height:140px;">
+                  </div>
+            </div>
+              
+          </section>
+
+          {% endfor %}
+        <div class = "col-md-12" style="text-align:center; padding-top:20px;"> <a class="btn" href="/"
+          style="font-family: 'Lato', sans-serif;color:#ffffff;font-size:16px;text-decoration:none;background:black;padding:10px 30px;border-radius:2px; text-transform: uppercase; box-shadow: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);"
+          target="_blank" data-hs-link-id="1">Try Agaain!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        
+      
 
 <div class="panel panel-default">    
     <table class="table" id="cardtable">
@@ -44,5 +80,5 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+
 </html>

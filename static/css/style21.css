@@ -24,7 +24,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    border: 2px solid lightgoldenrodyellow; }
+    border: 2px solid white; }
 
 .text-fill {
   position: absolute;
@@ -36,7 +36,7 @@
   overflow: hidden; }
 
 .shape--fill {
-  fill: lightgoldenrodyellow; }
+  fill: white; }
 
 /* Transparent copy of text to keep patterned text selectable */
 .text--transparent {
@@ -77,7 +77,7 @@ body {
   height: 100%; }
 
 body {
-  background: lightgoldenrodyellow; }
+  background: white; }
 
 .svg-defs {
   width: 0;

@@ -1,7 +1,7 @@
 """
 Card Recognition using OpenCV
 Code from the blog post
-http://arnab.org/blog/so-i-suck-24-automating-card-games-using-opencv-and-python
+    http://arnab.org/blog/so-i-suck-24-automating-card-games-using-opencv-and-python
 
 Usage:
 
