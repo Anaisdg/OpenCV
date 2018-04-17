@@ -8,7 +8,7 @@ import unpack
 import card_detection 
 import cv2 as cv
 import Card_Predictor 
-import Gamelogic
+import gamelogic
 
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -40,7 +40,7 @@ def upload_file():
             cards= Card_Predictor.prediction_tuples()
             
             board = unpack.unpack_result(cards)
-            foundSet = Gamelogic.findSet(board)
+            foundSet = gamelogic.findSet(board)
             result.append(foundSet)
         return redirect('results')
     return render_template("index.html")
